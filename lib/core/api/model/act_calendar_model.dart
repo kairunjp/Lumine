@@ -8,9 +8,9 @@ class ActCalendar with _$ActCalendar {
   const factory ActCalendar({
     @JsonKey(name: 'avatar_card_pool_list') required List<CardPool> avatarCardPoolList,
     @JsonKey(name: 'weapon_card_pool_list') required List<CardPool> weaponCardPoolList,
-    // @JsonKey(name: 'mixed_card_pool_list') List<> mixedCardPoolList,
+    @JsonKey(name: 'mixed_card_pool_list') required List<CardPool> mixedCardPoolList,
     @JsonKey(name: 'selected_avatar_card_pool_list') required List<CardPool> selectedAvatarCardPoolList,
-    // @JsonKey(name: 'selected_mixed_card_pool_list	') List<> selectedMixedCardPoolList,
+    @JsonKey(name: 'selected_mixed_card_pool_list') required List<CardPool> selectedMixedCardPoolList,
     @JsonKey(name: 'act_list') required List<ActItem> actList,
     @JsonKey(name: 'fixed_act_list') required List<ActItem> fixedActList
   }) = _ActCalendar;
@@ -173,7 +173,8 @@ class SignInDetail with _$SignInDetail {
 @JsonEnum(valueField: 'poolType')
 enum PoolType {
   characterEventWish(1),
-  weaponEventWish(2);
+  weaponEventWish(2),
+  chronicledWih(3);
 
   const PoolType(this.poolType);
   final int poolType;

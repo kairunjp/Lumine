@@ -23,11 +23,15 @@ mixin _$ActCalendar {
   @JsonKey(name: 'avatar_card_pool_list')
   List<CardPool> get avatarCardPoolList => throw _privateConstructorUsedError;
   @JsonKey(name: 'weapon_card_pool_list')
-  List<CardPool> get weaponCardPoolList =>
-      throw _privateConstructorUsedError; // @JsonKey(name: 'mixed_card_pool_list') List<> mixedCardPoolList,
+  List<CardPool> get weaponCardPoolList => throw _privateConstructorUsedError;
+  @JsonKey(name: 'mixed_card_pool_list')
+  List<CardPool> get mixedCardPoolList => throw _privateConstructorUsedError;
   @JsonKey(name: 'selected_avatar_card_pool_list')
   List<CardPool> get selectedAvatarCardPoolList =>
-      throw _privateConstructorUsedError; // @JsonKey(name: 'selected_mixed_card_pool_list	') List<> selectedMixedCardPoolList,
+      throw _privateConstructorUsedError;
+  @JsonKey(name: 'selected_mixed_card_pool_list')
+  List<CardPool> get selectedMixedCardPoolList =>
+      throw _privateConstructorUsedError;
   @JsonKey(name: 'act_list')
   List<ActItem> get actList => throw _privateConstructorUsedError;
   @JsonKey(name: 'fixed_act_list')
@@ -53,8 +57,11 @@ abstract class $ActCalendarCopyWith<$Res> {
       {@JsonKey(name: 'avatar_card_pool_list')
       List<CardPool> avatarCardPoolList,
       @JsonKey(name: 'weapon_card_pool_list') List<CardPool> weaponCardPoolList,
+      @JsonKey(name: 'mixed_card_pool_list') List<CardPool> mixedCardPoolList,
       @JsonKey(name: 'selected_avatar_card_pool_list')
       List<CardPool> selectedAvatarCardPoolList,
+      @JsonKey(name: 'selected_mixed_card_pool_list')
+      List<CardPool> selectedMixedCardPoolList,
       @JsonKey(name: 'act_list') List<ActItem> actList,
       @JsonKey(name: 'fixed_act_list') List<ActItem> fixedActList});
 }
@@ -76,7 +83,9 @@ class _$ActCalendarCopyWithImpl<$Res, $Val extends ActCalendar>
   $Res call({
     Object? avatarCardPoolList = null,
     Object? weaponCardPoolList = null,
+    Object? mixedCardPoolList = null,
     Object? selectedAvatarCardPoolList = null,
+    Object? selectedMixedCardPoolList = null,
     Object? actList = null,
     Object? fixedActList = null,
   }) {
@@ -89,9 +98,17 @@ class _$ActCalendarCopyWithImpl<$Res, $Val extends ActCalendar>
           ? _value.weaponCardPoolList
           : weaponCardPoolList // ignore: cast_nullable_to_non_nullable
               as List<CardPool>,
+      mixedCardPoolList: null == mixedCardPoolList
+          ? _value.mixedCardPoolList
+          : mixedCardPoolList // ignore: cast_nullable_to_non_nullable
+              as List<CardPool>,
       selectedAvatarCardPoolList: null == selectedAvatarCardPoolList
           ? _value.selectedAvatarCardPoolList
           : selectedAvatarCardPoolList // ignore: cast_nullable_to_non_nullable
+              as List<CardPool>,
+      selectedMixedCardPoolList: null == selectedMixedCardPoolList
+          ? _value.selectedMixedCardPoolList
+          : selectedMixedCardPoolList // ignore: cast_nullable_to_non_nullable
               as List<CardPool>,
       actList: null == actList
           ? _value.actList
@@ -117,8 +134,11 @@ abstract class _$$ActCalendarImplCopyWith<$Res>
       {@JsonKey(name: 'avatar_card_pool_list')
       List<CardPool> avatarCardPoolList,
       @JsonKey(name: 'weapon_card_pool_list') List<CardPool> weaponCardPoolList,
+      @JsonKey(name: 'mixed_card_pool_list') List<CardPool> mixedCardPoolList,
       @JsonKey(name: 'selected_avatar_card_pool_list')
       List<CardPool> selectedAvatarCardPoolList,
+      @JsonKey(name: 'selected_mixed_card_pool_list')
+      List<CardPool> selectedMixedCardPoolList,
       @JsonKey(name: 'act_list') List<ActItem> actList,
       @JsonKey(name: 'fixed_act_list') List<ActItem> fixedActList});
 }
@@ -138,7 +158,9 @@ class __$$ActCalendarImplCopyWithImpl<$Res>
   $Res call({
     Object? avatarCardPoolList = null,
     Object? weaponCardPoolList = null,
+    Object? mixedCardPoolList = null,
     Object? selectedAvatarCardPoolList = null,
+    Object? selectedMixedCardPoolList = null,
     Object? actList = null,
     Object? fixedActList = null,
   }) {
@@ -151,9 +173,17 @@ class __$$ActCalendarImplCopyWithImpl<$Res>
           ? _value._weaponCardPoolList
           : weaponCardPoolList // ignore: cast_nullable_to_non_nullable
               as List<CardPool>,
+      mixedCardPoolList: null == mixedCardPoolList
+          ? _value._mixedCardPoolList
+          : mixedCardPoolList // ignore: cast_nullable_to_non_nullable
+              as List<CardPool>,
       selectedAvatarCardPoolList: null == selectedAvatarCardPoolList
           ? _value._selectedAvatarCardPoolList
           : selectedAvatarCardPoolList // ignore: cast_nullable_to_non_nullable
+              as List<CardPool>,
+      selectedMixedCardPoolList: null == selectedMixedCardPoolList
+          ? _value._selectedMixedCardPoolList
+          : selectedMixedCardPoolList // ignore: cast_nullable_to_non_nullable
               as List<CardPool>,
       actList: null == actList
           ? _value._actList
@@ -175,14 +205,20 @@ class _$ActCalendarImpl implements _ActCalendar {
       required final List<CardPool> avatarCardPoolList,
       @JsonKey(name: 'weapon_card_pool_list')
       required final List<CardPool> weaponCardPoolList,
+      @JsonKey(name: 'mixed_card_pool_list')
+      required final List<CardPool> mixedCardPoolList,
       @JsonKey(name: 'selected_avatar_card_pool_list')
       required final List<CardPool> selectedAvatarCardPoolList,
+      @JsonKey(name: 'selected_mixed_card_pool_list')
+      required final List<CardPool> selectedMixedCardPoolList,
       @JsonKey(name: 'act_list') required final List<ActItem> actList,
       @JsonKey(name: 'fixed_act_list')
       required final List<ActItem> fixedActList})
       : _avatarCardPoolList = avatarCardPoolList,
         _weaponCardPoolList = weaponCardPoolList,
+        _mixedCardPoolList = mixedCardPoolList,
         _selectedAvatarCardPoolList = selectedAvatarCardPoolList,
+        _selectedMixedCardPoolList = selectedMixedCardPoolList,
         _actList = actList,
         _fixedActList = fixedActList;
 
@@ -209,9 +245,17 @@ class _$ActCalendarImpl implements _ActCalendar {
     return EqualUnmodifiableListView(_weaponCardPoolList);
   }
 
-// @JsonKey(name: 'mixed_card_pool_list') List<> mixedCardPoolList,
+  final List<CardPool> _mixedCardPoolList;
+  @override
+  @JsonKey(name: 'mixed_card_pool_list')
+  List<CardPool> get mixedCardPoolList {
+    if (_mixedCardPoolList is EqualUnmodifiableListView)
+      return _mixedCardPoolList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_mixedCardPoolList);
+  }
+
   final List<CardPool> _selectedAvatarCardPoolList;
-// @JsonKey(name: 'mixed_card_pool_list') List<> mixedCardPoolList,
   @override
   @JsonKey(name: 'selected_avatar_card_pool_list')
   List<CardPool> get selectedAvatarCardPoolList {
@@ -221,9 +265,17 @@ class _$ActCalendarImpl implements _ActCalendar {
     return EqualUnmodifiableListView(_selectedAvatarCardPoolList);
   }
 
-// @JsonKey(name: 'selected_mixed_card_pool_list	') List<> selectedMixedCardPoolList,
+  final List<CardPool> _selectedMixedCardPoolList;
+  @override
+  @JsonKey(name: 'selected_mixed_card_pool_list')
+  List<CardPool> get selectedMixedCardPoolList {
+    if (_selectedMixedCardPoolList is EqualUnmodifiableListView)
+      return _selectedMixedCardPoolList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedMixedCardPoolList);
+  }
+
   final List<ActItem> _actList;
-// @JsonKey(name: 'selected_mixed_card_pool_list	') List<> selectedMixedCardPoolList,
   @override
   @JsonKey(name: 'act_list')
   List<ActItem> get actList {
@@ -243,7 +295,7 @@ class _$ActCalendarImpl implements _ActCalendar {
 
   @override
   String toString() {
-    return 'ActCalendar(avatarCardPoolList: $avatarCardPoolList, weaponCardPoolList: $weaponCardPoolList, selectedAvatarCardPoolList: $selectedAvatarCardPoolList, actList: $actList, fixedActList: $fixedActList)';
+    return 'ActCalendar(avatarCardPoolList: $avatarCardPoolList, weaponCardPoolList: $weaponCardPoolList, mixedCardPoolList: $mixedCardPoolList, selectedAvatarCardPoolList: $selectedAvatarCardPoolList, selectedMixedCardPoolList: $selectedMixedCardPoolList, actList: $actList, fixedActList: $fixedActList)';
   }
 
   @override
@@ -255,9 +307,13 @@ class _$ActCalendarImpl implements _ActCalendar {
                 .equals(other._avatarCardPoolList, _avatarCardPoolList) &&
             const DeepCollectionEquality()
                 .equals(other._weaponCardPoolList, _weaponCardPoolList) &&
+            const DeepCollectionEquality()
+                .equals(other._mixedCardPoolList, _mixedCardPoolList) &&
             const DeepCollectionEquality().equals(
                 other._selectedAvatarCardPoolList,
                 _selectedAvatarCardPoolList) &&
+            const DeepCollectionEquality().equals(
+                other._selectedMixedCardPoolList, _selectedMixedCardPoolList) &&
             const DeepCollectionEquality().equals(other._actList, _actList) &&
             const DeepCollectionEquality()
                 .equals(other._fixedActList, _fixedActList));
@@ -269,7 +325,9 @@ class _$ActCalendarImpl implements _ActCalendar {
       runtimeType,
       const DeepCollectionEquality().hash(_avatarCardPoolList),
       const DeepCollectionEquality().hash(_weaponCardPoolList),
+      const DeepCollectionEquality().hash(_mixedCardPoolList),
       const DeepCollectionEquality().hash(_selectedAvatarCardPoolList),
+      const DeepCollectionEquality().hash(_selectedMixedCardPoolList),
       const DeepCollectionEquality().hash(_actList),
       const DeepCollectionEquality().hash(_fixedActList));
 
@@ -295,8 +353,12 @@ abstract class _ActCalendar implements ActCalendar {
       required final List<CardPool> avatarCardPoolList,
       @JsonKey(name: 'weapon_card_pool_list')
       required final List<CardPool> weaponCardPoolList,
+      @JsonKey(name: 'mixed_card_pool_list')
+      required final List<CardPool> mixedCardPoolList,
       @JsonKey(name: 'selected_avatar_card_pool_list')
       required final List<CardPool> selectedAvatarCardPoolList,
+      @JsonKey(name: 'selected_mixed_card_pool_list')
+      required final List<CardPool> selectedMixedCardPoolList,
       @JsonKey(name: 'act_list') required final List<ActItem> actList,
       @JsonKey(name: 'fixed_act_list')
       required final List<ActItem> fixedActList}) = _$ActCalendarImpl;
@@ -309,12 +371,16 @@ abstract class _ActCalendar implements ActCalendar {
   List<CardPool> get avatarCardPoolList;
   @override
   @JsonKey(name: 'weapon_card_pool_list')
-  List<CardPool>
-      get weaponCardPoolList; // @JsonKey(name: 'mixed_card_pool_list') List<> mixedCardPoolList,
+  List<CardPool> get weaponCardPoolList;
+  @override
+  @JsonKey(name: 'mixed_card_pool_list')
+  List<CardPool> get mixedCardPoolList;
   @override
   @JsonKey(name: 'selected_avatar_card_pool_list')
-  List<CardPool>
-      get selectedAvatarCardPoolList; // @JsonKey(name: 'selected_mixed_card_pool_list	') List<> selectedMixedCardPoolList,
+  List<CardPool> get selectedAvatarCardPoolList;
+  @override
+  @JsonKey(name: 'selected_mixed_card_pool_list')
+  List<CardPool> get selectedMixedCardPoolList;
   @override
   @JsonKey(name: 'act_list')
   List<ActItem> get actList;

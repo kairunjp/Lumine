@@ -131,77 +131,80 @@ class AccountView extends HookConsumerWidget {
                         ),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: value.avatars.map((character) {
-                              return GestureDetector(
-                                child: Container(
-                                  margin: const EdgeInsets.only(left: 16),
-                                  clipBehavior: Clip.hardEdge,
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context).colorScheme.secondaryContainer,
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  width: 100,
-                                  child: Column(
-                                    children: [
-                                      AspectRatio(
-                                        aspectRatio: 1,
-                                        child: Stack(
-                                          alignment: Alignment.center,
-                                          children: [
-                                            Image.asset('assets/rank_${character.rarity}.png'),
-                                            CachedNetworkImage(
-                                              imageUrl: character.image
-                                            ),
-                                            Positioned(
-                                              left: 4,
-                                              top: 4,
-                                              child: Image.asset(
-                                                elementIcons[character.element],
-                                                width: 20,
-                                                height: 20,
-                                              )
-                                            ),
-                                            if (character.activedConstellationNum != 0) Positioned(
-                                              top: 0,
-                                              right: 0,
-                                              child: Container(
-                                                padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
-                                                decoration: BoxDecoration(
-                                                  borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(12)),
-                                                  color: Colors.black.withValues(alpha: 0.5),
-                                                ),
-                                                child: Text(
-                                                  'C${character.activedConstellationNum}',
-                                                  style: const TextStyle(color: Colors.white)
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              spacing: 16,
+                              children: value.avatars.map((character) {
+                                return GestureDetector(
+                                  child: Container(
+                                    clipBehavior: Clip.hardEdge,
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context).colorScheme.secondaryContainer,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    width: 100,
+                                    child: Column(
+                                      children: [
+                                        AspectRatio(
+                                          aspectRatio: 1,
+                                          child: Stack(
+                                            alignment: Alignment.center,
+                                            children: [
+                                              Image.asset('assets/rank_${character.rarity}.png'),
+                                              CachedNetworkImage(
+                                                imageUrl: character.image
+                                              ),
+                                              Positioned(
+                                                left: 4,
+                                                top: 4,
+                                                child: Image.asset(
+                                                  elementIcons[character.element],
+                                                  width: 20,
+                                                  height: 20,
+                                                )
+                                              ),
+                                              if (character.activedConstellationNum != 0) Positioned(
+                                                top: 0,
+                                                right: 0,
+                                                child: Container(
+                                                  padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(12)),
+                                                    color: Colors.black.withValues(alpha: 0.5),
+                                                  ),
+                                                  child: Text(
+                                                    'C${character.activedConstellationNum}',
+                                                    style: const TextStyle(color: Colors.white)
+                                                  )
                                                 )
                                               )
-                                            )
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      Text('Lv.${character.level}')
-                                    ],
-                                  )
-                                ),
-                                onTap: () {
-                                  showModalBottomSheet(
-                                    context: context,
-                                    isScrollControlled: true,
-                                    useSafeArea: true,
-                                    enableDrag: true,
-                                    clipBehavior: Clip.hardEdge,
-                                    builder: (context) {
-                                      return SizedBox(
-                                        height: MediaQuery.of(context).size.height * 0.9,
-                                        child: CharacterDetailView(id: character.id)
-                                      );
-                                    },
-                                  );
-                                },
-                              );
-                            }).toList(),
+                                        Text('Lv.${character.level}')
+                                      ],
+                                    )
+                                  ),
+                                  onTap: () {
+                                    showModalBottomSheet(
+                                      context: context,
+                                      isScrollControlled: true,
+                                      useSafeArea: true,
+                                      enableDrag: true,
+                                      clipBehavior: Clip.hardEdge,
+                                      builder: (context) {
+                                        return SizedBox(
+                                          height: MediaQuery.of(context).size.height * 0.9,
+                                          child: CharacterDetailView(id: character.id)
+                                        );
+                                      },
+                                    );
+                                  },
+                                );
+                              }).toList(),
+                            )
                           )
                         ),
                       ],

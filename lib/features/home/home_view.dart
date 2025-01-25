@@ -596,33 +596,37 @@ class HomeView extends HookConsumerWidget  {
                                   }),
                                 ]
                               )
-                            ) else WaterfallFlow.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              gridDelegate: const SliverWaterfallFlowDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 5,
-                                crossAxisSpacing: 8,
-                                mainAxisSpacing: 8,
-                              ),
-                              itemCount: exchangeCodeData.bonusesSummary.iconBonuses.length,
-                              itemBuilder: (context, index) {
-                                final iconBonus = exchangeCodeData.bonusesSummary.iconBonuses[index];
+                            ) else Card.filled(
+                              color: cardColor,
+                              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                              child: WaterfallFlow.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                gridDelegate: const SliverWaterfallFlowDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 5,
+                                  crossAxisSpacing: 8,
+                                  mainAxisSpacing: 8,
+                                ),
+                                itemCount: exchangeCodeData.bonusesSummary.iconBonuses.length,
+                                itemBuilder: (context, index) {
+                                  final iconBonus = exchangeCodeData.bonusesSummary.iconBonuses[index];
 
-                                return GridTile(
-                                  child: Column(
-                                    children: [
-                                      AspectRatio(
-                                        aspectRatio: 1,
-                                        child: CachedNetworkImage(
-                                          imageUrl: iconBonus.iconUrl
+                                  return GridTile(
+                                    child: Column(
+                                      children: [
+                                        AspectRatio(
+                                          aspectRatio: 1,
+                                          child: CachedNetworkImage(
+                                            imageUrl: iconBonus.iconUrl
+                                          ),
                                         ),
-                                      ),
-                                      Text('x${iconBonus.bonusNum}')
-                                    ],
-                                  )
-                                );
-                              },
-                            ),
+                                        Text('x${iconBonus.bonusNum}')
+                                      ],
+                                    )
+                                  );
+                                },
+                              ),
+                            )
                           ]
                         );
                       }

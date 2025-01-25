@@ -240,6 +240,99 @@ class _EventTabView extends HookConsumerWidget {
                     )
                   )
                 ),
+                ...actCalendarData.mixedCardPoolList.map((mixedCard) =>
+                  Card.filled(
+                    color: cardColor,
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 8,
+                      horizontal: 16
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ListTile(
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                          title: Text(mixedCard.poolName),
+                          subtitle: Text('残り時間: ${DateFormatter.formatTime(mixedCard.countdownSeconds * 1000, showSeconds: false)}'),
+                          trailing: RawChip(label: Text(mixedCard.versionName)),
+                        ),
+                        const Divider(
+                          indent: 16,
+                          endIndent: 16,
+                          height: 1
+                        ),
+                        GridView.builder(
+                          padding: const EdgeInsets.only(top: 16, right: 16, left: 16),
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 5,
+                            childAspectRatio: 1,
+                            crossAxisSpacing: 8,
+                            mainAxisSpacing: 8
+                          ),
+                          itemCount: mixedCard.avatars.length,
+                          itemBuilder: (context, index) {
+                            final avatar = mixedCard.avatars[index];
+                            
+                            return Tooltip(
+                              message: avatar.name,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: Stack(
+                                  children: [
+                                    Image.asset('assets/rank_${avatar.rarity}.png'),
+                                    CachedNetworkImage(
+                                      imageUrl: avatar.icon
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(4),
+                                      child: Image.asset(
+                                        elementIcons[avatar.element],
+                                        width: 14,
+                                        height: 14,
+                                      )
+                                    ),
+                                  ]
+                                )
+                              )
+                            );
+                          },
+                        ),
+                        GridView.builder(
+                          padding: const EdgeInsets.only(top: 8, right: 16, left: 16, bottom: 16),
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 5,
+                            childAspectRatio: 1,
+                            crossAxisSpacing: 8,
+                            mainAxisSpacing: 8
+                          ),
+                          itemCount: mixedCard.weapon.length,
+                          itemBuilder: (context, index) {
+                            final weapon = mixedCard.weapon[index];
+                            
+                            return Tooltip(
+                              message: weapon.name,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: Stack(
+                                  children: [
+                                    Image.asset('assets/rank_${weapon.rarity}.png'),
+                                    CachedNetworkImage(
+                                      imageUrl: weapon.icon
+                                    ),
+                                  ]
+                                )
+                              )
+                            );
+                          },
+                        )
+                      ]
+                    )
+                  )
+                ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(

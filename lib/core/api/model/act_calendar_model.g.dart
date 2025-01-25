@@ -14,8 +14,15 @@ _$ActCalendarImpl _$$ActCalendarImplFromJson(Map<String, dynamic> json) =>
       weaponCardPoolList: (json['weapon_card_pool_list'] as List<dynamic>)
           .map((e) => CardPool.fromJson(e as Map<String, dynamic>))
           .toList(),
+      mixedCardPoolList: (json['mixed_card_pool_list'] as List<dynamic>)
+          .map((e) => CardPool.fromJson(e as Map<String, dynamic>))
+          .toList(),
       selectedAvatarCardPoolList:
           (json['selected_avatar_card_pool_list'] as List<dynamic>)
+              .map((e) => CardPool.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      selectedMixedCardPoolList:
+          (json['selected_mixed_card_pool_list'] as List<dynamic>)
               .map((e) => CardPool.fromJson(e as Map<String, dynamic>))
               .toList(),
       actList: (json['act_list'] as List<dynamic>)
@@ -30,7 +37,9 @@ Map<String, dynamic> _$$ActCalendarImplToJson(_$ActCalendarImpl instance) =>
     <String, dynamic>{
       'avatar_card_pool_list': instance.avatarCardPoolList,
       'weapon_card_pool_list': instance.weaponCardPoolList,
+      'mixed_card_pool_list': instance.mixedCardPoolList,
       'selected_avatar_card_pool_list': instance.selectedAvatarCardPoolList,
+      'selected_mixed_card_pool_list': instance.selectedMixedCardPoolList,
       'act_list': instance.actList,
       'fixed_act_list': instance.fixedActList,
     };
@@ -70,6 +79,7 @@ Map<String, dynamic> _$$CardPoolImplToJson(_$CardPoolImpl instance) =>
 const _$PoolTypeEnumMap = {
   PoolType.characterEventWish: 1,
   PoolType.weaponEventWish: 2,
+  PoolType.chronicledWih: 3,
 };
 
 const _$PoolStatusEnumMap = {
